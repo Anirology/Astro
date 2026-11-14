@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" role="img" aria-labelledby="title">
+<title id="title">STORM SCOUT</title>
+<defs><linearGradient id="medal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFE0EA"/><stop offset="1" stop-color="#FF91B8"/></linearGradient></defs>
+<path d="M70 201 51 265l62-19 32 30 13-51M250 201l19 64-62-19-32 30-13-51" fill="#FF91B8" stroke="#24456D" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="160" cy="139" r="122" fill="#D8E6EE" stroke="#24456D" stroke-width="7"/><circle cx="160" cy="132" r="118" fill="url(#medal)" stroke="#fff" stroke-width="8"/><circle cx="160" cy="132" r="102" fill="none" stroke="#24456D" stroke-opacity=".20" stroke-width="4" stroke-dasharray="9 10"/>
+<circle cx="53" cy="89" r="8" fill="#fff" opacity=".9"/><circle cx="266" cy="80" r="6" fill="#fff" opacity=".9"/><path d="m55 183 5 9 10 4-10 4-5 9-5-9-10-4 10-4Zm209-34 4 8 9 4-9 4-4 8-4-8-9-4 9-4Z" fill="#fff" opacity=".92"/>
+<circle cx="160" cy="100" r="31" fill="#FFD458" stroke="#B95B59" stroke-width="6"/><path d="M160 49V37m0 125v-12M109 100H96m128 0h-13m-89-37-9-9m94 94-9-9m0-76 9-9m-94 94 9-9" stroke="#FFD458" stroke-width="8" stroke-linecap="round"/><path d="M113 140q48-18 94 0v30q-20 32-47 44-28-12-47-44Z" fill="#fff" stroke="#24456D" stroke-width="7"/><path d="m139 169 16 14 30-31" fill="none" stroke="#32BFAF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 254q135-22 270 0v67q-135 25-270 0Z" fill="#fff" stroke="#24456D" stroke-width="7" stroke-linejoin="round"/><path d="M37 266q123-17 246 0" fill="none" stroke="#FF91B8" stroke-width="7" stroke-linecap="round"/>
+<text x="160" y="292" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="1.2" fill="#24456D">STORM</text>
+<text x="160" y="318" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="25" font-weight="900" letter-spacing="1" fill="#24456D">SCOUT</text>
+</svg>

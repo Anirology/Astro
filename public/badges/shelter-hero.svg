@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" role="img" aria-labelledby="title">
+<title id="title">SHELTER HERO</title>
+<defs><linearGradient id="medal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#E1F9CC"/><stop offset="1" stop-color="#77DBA8"/></linearGradient></defs>
+<path d="M70 201 51 265l62-19 32 30 13-51M250 201l19 64-62-19-32 30-13-51" fill="#77DBA8" stroke="#24456D" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="160" cy="139" r="122" fill="#D8E6EE" stroke="#24456D" stroke-width="7"/><circle cx="160" cy="132" r="118" fill="url(#medal)" stroke="#fff" stroke-width="8"/><circle cx="160" cy="132" r="102" fill="none" stroke="#24456D" stroke-opacity=".20" stroke-width="4" stroke-dasharray="9 10"/>
+<circle cx="53" cy="89" r="8" fill="#fff" opacity=".9"/><circle cx="266" cy="80" r="6" fill="#fff" opacity=".9"/><path d="m55 183 5 9 10 4-10 4-5 9-5-9-10-4 10-4Zm209-34 4 8 9 4-9 4-4 8-4-8-9-4 9-4Z" fill="#fff" opacity=".92"/>
+<path d="M89 177q6-83 71-92 65 9 71 92Z" fill="#fff" stroke="#245173" stroke-width="8"/><path d="M108 174q5-56 52-65 47 9 52 65Z" fill="#8ED5E0" stroke="#245173" stroke-width="5"/><circle cx="142" cy="152" r="9" fill="#245173"/><circle cx="177" cy="152" r="9" fill="#245173"/><path d="M82 187h156" stroke="#245173" stroke-width="9" stroke-linecap="round"/><path d="m111 62-18-12m130 12 18-12" stroke="#FFD35C" stroke-width="8" stroke-linecap="round"/>
+<path d="M25 254q135-22 270 0v67q-135 25-270 0Z" fill="#fff" stroke="#24456D" stroke-width="7" stroke-linejoin="round"/><path d="M37 266q123-17 246 0" fill="none" stroke="#77DBA8" stroke-width="7" stroke-linecap="round"/>
+<text x="160" y="292" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="1.2" fill="#24456D">SHELTER</text>
+<text x="160" y="318" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="25" font-weight="900" letter-spacing="1" fill="#24456D">HERO</text>
+</svg>

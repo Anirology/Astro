@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" role="img" aria-labelledby="title">
+<title id="title">CRATER CARTOGRAPHER</title>
+<defs><linearGradient id="medal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#D9EDFF"/><stop offset="1" stop-color="#6CB9FF"/></linearGradient></defs>
+<path d="M70 201 51 265l62-19 32 30 13-51M250 201l19 64-62-19-32 30-13-51" fill="#6CB9FF" stroke="#24456D" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="160" cy="139" r="122" fill="#D8E6EE" stroke="#24456D" stroke-width="7"/><circle cx="160" cy="132" r="118" fill="url(#medal)" stroke="#fff" stroke-width="8"/><circle cx="160" cy="132" r="102" fill="none" stroke="#24456D" stroke-opacity=".20" stroke-width="4" stroke-dasharray="9 10"/>
+<circle cx="53" cy="89" r="8" fill="#fff" opacity=".9"/><circle cx="266" cy="80" r="6" fill="#fff" opacity=".9"/><path d="m55 183 5 9 10 4-10 4-5 9-5-9-10-4 10-4Zm209-34 4 8 9 4-9 4-4 8-4-8-9-4 9-4Z" fill="#fff" opacity=".92"/>
+<circle cx="152" cy="140" r="64" fill="#E9F4FF" stroke="#274A70" stroke-width="7"/><ellipse cx="131" cy="125" rx="25" ry="12" fill="#A6C4E3" stroke="#274A70" stroke-width="4"/><ellipse cx="178" cy="157" rx="17" ry="9" fill="#A6C4E3" stroke="#274A70" stroke-width="4"/><path d="M95 90q72-62 135-6" fill="none" stroke="#FFD35C" stroke-width="8" stroke-linecap="round"/><path d="m209 72 24 16-25 11" fill="none" stroke="#FFD35C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 254q135-22 270 0v67q-135 25-270 0Z" fill="#fff" stroke="#24456D" stroke-width="7" stroke-linejoin="round"/><path d="M37 266q123-17 246 0" fill="none" stroke="#6CB9FF" stroke-width="7" stroke-linecap="round"/>
+<text x="160" y="292" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="1.2" fill="#24456D">CRATER</text>
+<text x="160" y="318" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="19" font-weight="900" letter-spacing="1" fill="#24456D">CARTOGRAPHER</text>
+</svg>

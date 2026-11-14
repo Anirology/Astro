@@ -1,0 +1,520 @@
+.sound-toggle {
+  border: 1px solid #b9ded9;
+  background: #e8f7f4;
+  color: #0b7774;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 900;
+  min-height: 34px;
+}
+.sound-toggle[aria-pressed="true"] {
+  background: #29b6b0;
+  color: #092f3b;
+}
+.top-stats {
+  align-items: center;
+}
+.astro-guide {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(105deg, #fff, #e8f8f4);
+  border: 1px solid #ccebe5;
+  border-radius: 21px;
+  padding: 7px 22px 7px 8px;
+  box-shadow: 0 10px 26px #19415c0b;
+  margin: 0 0 22px;
+  min-height: 108px;
+  animation: guide-arrive 0.28s ease-out both;
+}
+.astro-guide .astro {
+  width: 96px;
+  height: 96px;
+  flex: none;
+}
+.astro-guide-copy {
+  min-width: 0;
+}
+.astro-guide-copy p {
+  font-size: 15px;
+  font-weight: 800;
+  color: #274960;
+  margin: 3px 0 0;
+  line-height: 1.35;
+}
+.astro-guide .hint-toggle {
+  background: none;
+  border: 0;
+  padding: 3px 0;
+  color: #0c8c88;
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: underline;
+}
+.astro-guide .hint-content {
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff8e4;
+  border-radius: 8px;
+  padding: 7px 9px;
+  margin: 4px 0 0;
+}
+.astro-guide-compact {
+  min-height: 110px;
+  margin: 10px 0 8px;
+  padding: 2px 9px;
+  background: #e8f7f3;
+  gap: 6px;
+  box-shadow: none;
+}
+.astro-guide-compact .astro {
+  width: 100px;
+  height: 100px;
+}
+.astro-guide-compact .astro-guide-copy p {
+  font-size: 13px;
+}
+.intro-side .astro-guide {
+  margin: 0 0 20px;
+  align-items: flex-start;
+}
+.intro-side .astro-guide .astro {
+  width: 86px;
+  height: 86px;
+}
+.intro-side .astro-guide-copy p {
+  font-size: 12px;
+}
+.format-pill {
+  display: inline-block;
+  background: #edf4f2;
+  color: #287875;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  padding: 3px 7px;
+  margin-bottom: 3px;
+}
+.interaction {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.interaction .choices {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.interaction-instruction {
+  font-size: 11px;
+  font-weight: 800;
+  color: #637d8d;
+  margin: 0 0 8px;
+}
+.choice {
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.choice:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #14344b12;
+}
+.choice.selected {
+  box-shadow: 0 0 0 3px #29b6b02a;
+  animation: card-pop 0.25s ease-out;
+}
+.drop-zone {
+  border: 2px dashed #76b8b0;
+  border-radius: 15px;
+  background: #eff9f5;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  margin: 0 0 12px;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+.drop-zone:not(.filled) {
+  animation: drop-pulse 2.4s ease-in-out infinite;
+}
+.drop-zone.filled {
+  border-style: solid;
+  background: #dff6ed;
+  animation: card-pop 0.25s ease-out;
+}
+.drop-zone strong,
+.drop-zone small {
+  display: block;
+}
+.drop-zone strong {
+  font-size: 13px;
+}
+.drop-zone small {
+  font-size: 10px;
+  color: #477b78;
+}
+.drop-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: #2db9b0;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 900;
+  flex: none;
+}
+.drag-card {
+  cursor: grab;
+  min-height: 70px;
+  padding: 9px 11px;
+}
+.drag-card:active {
+  cursor: grabbing;
+}
+.drag-handle {
+  color: #67aba7;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -5px;
+  padding-right: 6px;
+}
+.drag-card .choice-copy small {
+  font-size: 10px;
+}
+.garden-question {
+  background: #fff5dd;
+  border-radius: 13px;
+  padding: 10px 12px;
+  margin: 0 0 10px;
+}
+.garden-question span,
+.garden-question strong {
+  display: block;
+}
+.garden-question span {
+  color: #aa7b18;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.garden-question strong {
+  font-size: 13px;
+  line-height: 1.3;
+}
+.garden-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 7px !important;
+}
+.garden-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 147px;
+  padding: 9px;
+  text-align: left;
+  position: relative;
+}
+.garden-answer:nth-child(3):last-child {
+  grid-column: 1/-1;
+  min-height: 110px;
+}
+.garden-answer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.answer-letter {
+  width: 24px;
+  height: 24px;
+  background: #dff3ef;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  color: #0a8d88;
+  font-size: 12px;
+  font-weight: 900;
+}
+.garden-answer-icon {
+  font-size: 26px;
+  color: #19a49f;
+}
+.garden-answer .choice-copy strong {
+  font-size: 12px;
+  line-height: 1.2;
+}
+.garden-answer .choice-copy small {
+  font-size: 10px;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+.garden-answer .choice-copy em {
+  font-size: 10px;
+}
+.answer-picked {
+  position: absolute;
+  top: 9px;
+  left: 40px;
+  background: #cef0e7;
+  border-radius: 5px;
+  padding: 3px 5px;
+  color: #087d78;
+  font-size: 8px;
+  font-weight: 900;
+}
+.visual-panel .scene-stars i {
+  animation: twinkle 2.8s ease-in-out infinite;
+}
+.visual-panel .scene-stars i:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.visual-panel .scene-stars i:nth-child(4) {
+  animation-delay: 1s;
+}
+.scene-orb {
+  animation: orb-breathe 3.5s ease-in-out infinite;
+}
+.track span {
+  transition: width 0.32s ease-out;
+}
+.progress-ring {
+  animation: guide-arrive 0.3s ease-out;
+}
+.stars {
+  animation: star-pop 0.55s ease-out both;
+}
+.badge.earned > span {
+  display: inline-block;
+  animation: badge-bob 2.8s ease-in-out infinite;
+}
+.modal {
+  animation: modal-enter 0.25s cubic-bezier(0.2, 1.2, 0.4, 1) both;
+}
+.modal > .astro {
+  width: 115px;
+  height: 115px;
+  float: right;
+  margin: -13px -5px 5px 12px;
+}
+.debrief-top .astro {
+  animation: astro-celebrate 0.8s ease-in-out infinite alternate;
+}
+.node-art {
+  animation: badge-bob 3s ease-in-out infinite;
+}
+.scene > .astro {
+  position: absolute;
+  left: 3%;
+  bottom: 8%;
+  width: 128px;
+  height: 128px;
+  z-index: 3;
+  filter: drop-shadow(2px 6px 3px #142b4970);
+}
+.intro-main .scene > .astro {
+  width: 116px;
+  height: 116px;
+}
+.astro {
+  overflow: visible;
+  animation: astro-float 3.2s ease-in-out infinite;
+}
+.astro--concerned {
+  animation: astro-worry 2.3s ease-in-out infinite;
+}
+.astro--celebrate {
+  animation: astro-celebrate 0.75s ease-in-out infinite alternate;
+}
+.astro--sleep {
+  animation: astro-sleep 3s ease-in-out infinite;
+}
+.astro--wave .astro-left-arm {
+  transform-box: fill-box;
+  transform-origin: right bottom;
+  animation: astro-wave 0.9s ease-in-out infinite alternate;
+}
+.astro--point .astro-right-arm,
+.astro--explain .astro-right-arm {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+  animation: astro-point 1.4s ease-in-out infinite alternate;
+}
+.astro--think .astro-antenna {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: astro-think 1.6s ease-in-out infinite alternate;
+}
+.astro--celebrate .astro-chest-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: star-pop 0.6s ease-out infinite alternate;
+}
+.astro--celebrate .astro-spark {
+  animation: twinkle 0.8s ease-in-out infinite alternate;
+}
+@keyframes astro-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes astro-wave {
+  to {
+    transform: rotate(-18deg);
+  }
+}
+@keyframes astro-point {
+  to {
+    transform: rotate(8deg);
+  }
+}
+@keyframes astro-think {
+  to {
+    transform: rotate(10deg);
+  }
+}
+@keyframes astro-worry {
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes astro-celebrate {
+  to {
+    transform: translateY(-9px) rotate(3deg);
+  }
+}
+@keyframes astro-sleep {
+  50% {
+    transform: translateY(3px);
+  }
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+@keyframes orb-breathe {
+  50% {
+    filter: brightness(1.25);
+  }
+}
+@keyframes card-pop {
+  0% {
+    transform: scale(0.96);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes drop-pulse {
+  50% {
+    border-color: #27b4ac;
+    background: #e3f8f0;
+  }
+}
+@keyframes guide-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes star-pop {
+  from {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes badge-bob {
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.astro-gallery {
+  margin-top: 20px;
+}
+.astro-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 10px;
+}
+.astro-gallery-grid > div {
+  text-align: center;
+  background: #f2f8f5;
+  border-radius: 12px;
+  padding: 4px;
+}
+.astro-gallery-grid .astro {
+  width: 100%;
+  height: 95px;
+}
+.astro-gallery-grid strong {
+  display: block;
+  color: #356069;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+.astro-result-guide {
+  background: #eaf8f3;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 800;
+  color: #2b6070;
+  font-size: 13px !important;
+}

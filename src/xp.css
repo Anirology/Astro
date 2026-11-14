@@ -1,0 +1,54 @@
+.xp-hud {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: min(100% - 48px, 1120px);
+  min-height: 72px;
+  margin: 14px auto 0;
+  padding: 10px 20px;
+  border: 3px solid #c8e9f2;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 6px 0 #cae9f0, 0 12px 22px #2c698022;
+}
+.xp-hud-icon {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  padding: 5px;
+  border-radius: 15px;
+  background: #fff1b6;
+  box-shadow: inset 0 -4px #f4d87c;
+}
+.xp-hud-icon .game-icon { width: 100%; height: 100%; filter: drop-shadow(0 2px 0 #e9b954); }
+.xp-hud-copy { display: grid; min-width: 190px; line-height: 1.2; }
+.xp-hud-copy strong { color: #225c74; font-size: 15px; letter-spacing: .08em; }
+.xp-hud-copy span { color: #5a748a; font-size: 12px; font-weight: 800; }
+.xp-hud-track { position: relative; flex: 1; height: 22px; overflow: hidden; border: 2px solid #9dd7d6; border-radius: 999px; background: #e3f7f4; box-shadow: inset 0 3px 3px #348d871b; }
+.xp-hud-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #31c9b8, #81df94 58%, #f6d45c); box-shadow: inset 0 -4px #168d84; transition: width .6s cubic-bezier(.18,.9,.25,1); }
+.xp-hud-total { min-width: 88px; color: #1b5870; font-size: 24px; font-weight: 900; text-align: right; }
+.xp-hud-plus { position: absolute; right: 18px; top: -25px; padding: 4px 11px; border-radius: 12px; background: #ffd864; color: #20435c; font-weight: 900; animation: xp-plus .75s ease-out both; }
+.xp-flight { position: fixed; z-index: 1100; width: 58px; height: 58px; margin: -29px; pointer-events: none; animation: xp-fly .95s cubic-bezier(.32,.1,.7,.95) both; }
+.xp-flight .game-icon { width: 58px; height: 58px; filter: drop-shadow(0 4px 6px #1d527244); }
+.xp-flight span { position: absolute; left: 37px; top: 32px; padding: 3px 7px; border-radius: 8px; background: #fff; color: #1b6072; font-size: 14px; font-weight: 900; box-shadow: 0 2px 0 #b5d8dd; }
+.xp-flight i { position: absolute; width: 10px; height: 10px; border-radius: 3px; background: #fff09b; box-shadow: 0 0 0 2px #ffce53; animation: xp-satellite .5s ease-out both; }
+.xp-flight i:nth-of-type(1) { left: -13px; top: 4px; --sx: -20px; --sy: -20px; }
+.xp-flight i:nth-of-type(2) { right: -11px; top: -8px; --sx: 21px; --sy: -16px; animation-delay: .07s; }
+.xp-flight i:nth-of-type(3) { left: 4px; bottom: -11px; --sx: -15px; --sy: 21px; animation-delay: .12s; }
+.xp-flight i:nth-of-type(4) { right: -14px; bottom: 3px; --sx: 22px; --sy: 14px; animation-delay: .05s; }
+@keyframes xp-fly { 0% { transform: translate(0,0) scale(.45) rotate(-24deg); opacity: 0; } 18% { transform: translate(0,-32px) scale(1.25) rotate(12deg); opacity: 1; } 70% { opacity: 1; } 100% { transform: translate(var(--fly-x),var(--fly-y)) scale(.28) rotate(120deg); opacity: 0; } }
+@keyframes xp-satellite { 0% { transform: scale(.2); opacity: 0; } 35% { opacity: 1; } 100% { transform: translate(var(--sx),var(--sy)) scale(.2); opacity: 0; } }
+@keyframes xp-plus { 0% { transform: translateY(10px) scale(.6); opacity: 0; } 35% { transform: translateY(-4px) scale(1.1); opacity: 1; } 100% { transform: translateY(-12px); opacity: 0; } }
+.header-nav .game-icon { width: 30px; height: 30px; padding: 3px; border-radius: 10px; background: #e6f7f5; filter: drop-shadow(0 2px 0 #b3ddd8); }
+.header-nav button:nth-child(2) .game-icon { background: #eaf3ff; }
+.header-nav button:nth-child(3) .game-icon { background: #fff0c8; }
+.header-nav button:nth-child(4) .game-icon { background: #ffe8e5; }
+.header-nav button:nth-child(5) .game-icon { background: #ecedff; }
+.node-art .game-icon, .quiz-scene .game-icon { filter: drop-shadow(0 3px 0 #6ba9ae40); }
+.reduce-motion .xp-flight, .reduce-motion .xp-flight i, .reduce-motion .xp-hud-plus { animation: none; }
+.reduce-motion .xp-hud-fill { transition: none; }
+@media (prefers-reduced-motion: reduce) { .xp-flight, .xp-flight i, .xp-hud-plus { animation: none; } .xp-hud-fill { transition: none; } }
+@media (max-width: 1100px) { .xp-hud { width: calc(100% - 28px); gap: 10px; } .xp-hud-copy { min-width: 150px; } .xp-hud-copy span { display: none; } }

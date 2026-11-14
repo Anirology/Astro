@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" role="img" aria-labelledby="title">
+<title id="title">POWER PLANNER</title>
+<defs><linearGradient id="medal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#FFF1B4"/><stop offset="1" stop-color="#FFD04F"/></linearGradient></defs>
+<path d="M70 201 51 265l62-19 32 30 13-51M250 201l19 64-62-19-32 30-13-51" fill="#FFD04F" stroke="#24456D" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="160" cy="139" r="122" fill="#D8E6EE" stroke="#24456D" stroke-width="7"/><circle cx="160" cy="132" r="118" fill="url(#medal)" stroke="#fff" stroke-width="8"/><circle cx="160" cy="132" r="102" fill="none" stroke="#24456D" stroke-opacity=".20" stroke-width="4" stroke-dasharray="9 10"/>
+<circle cx="53" cy="89" r="8" fill="#fff" opacity=".9"/><circle cx="266" cy="80" r="6" fill="#fff" opacity=".9"/><path d="m55 183 5 9 10 4-10 4-5 9-5-9-10-4 10-4Zm209-34 4 8 9 4-9 4-4 8-4-8-9-4 9-4Z" fill="#fff" opacity=".92"/>
+<rect x="104" y="79" width="111" height="111" rx="18" fill="#fff" stroke="#23456D" stroke-width="8"/><rect x="140" y="65" width="39" height="15" rx="5" fill="#23456D"/><path d="m168 91-34 49h25l-9 41 39-56h-25l12-34Z" fill="#FFB535" stroke="#23456D" stroke-width="5" stroke-linejoin="round"/>
+<path d="M25 254q135-22 270 0v67q-135 25-270 0Z" fill="#fff" stroke="#24456D" stroke-width="7" stroke-linejoin="round"/><path d="M37 266q123-17 246 0" fill="none" stroke="#FFD04F" stroke-width="7" stroke-linecap="round"/>
+<text x="160" y="292" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="1.2" fill="#24456D">POWER</text>
+<text x="160" y="318" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="25" font-weight="900" letter-spacing="1" fill="#24456D">PLANNER</text>
+</svg>
