@@ -1,11 +1,11 @@
 # Motion event map
 
-The campaign uses the same state sequence in all eight missions: `brief → predict → act → changed → done`. A wrong action stays in `act` or `changed` until the learner tries another choice. Astro changes from `point` to `concerned` on a mistake and to `celebrate` on a repair. The labeled system gauge changes from `normal` to `caution` or `repaired`; the number and text remain readable when motion is reduced.
+The campaign uses the same state sequence in all eight missions: `brief → act → changed → done`. A player selects an MCQ answer once and receives immediate feedback. A wrong answer stays in `act` or `changed` until the learner tries another choice. Astro changes from `point` to `concerned` on a mistake and to `celebrate` on a repair. The labeled system gauge changes from `normal` to `caution` or `repaired`; its text remains readable when motion is reduced.
 
 | Event | Visual response | Sound | Reduced motion |
 | --- | --- | --- | --- |
 | Focus or hover on a choice | Raised card and brighter border | None | Border remains |
-| Select prediction | Selected outline | Pick cue | Outline remains |
+| Select an answer | Immediate correct or incorrect result | Repair or retry cue | Result text and border remain |
 | Incorrect choice | Amber card, gauge caution, causal explanation | Gentle retry cue | Static amber label and explanation |
 | Correct choice | Mint card, gauge fills, Astro celebrates | Repair cue | Static repaired label and explanation |
 | XP award | Star travels toward the meter, then the fill grows | XP chime | Meter and number update directly |
