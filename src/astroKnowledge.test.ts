@@ -52,10 +52,10 @@ describe("Astro chat guidance", () => {
     expect(reply.text).toContain("I can help with");
     expect(reply.links).toBeUndefined();
   });
-  it("explains session XP and the restart rule", () => {
+  it("explains XP and saved learning", () => {
     const reply = answerAstro("How does the XP bar work?", context);
     expect(reply.text).toContain("100 XP");
-    expect(reply.text).toContain("Refresh");
+    expect(reply.text).toContain("stays on this device");
   });
   it("explains a mistake without taking XP away", () => {
     const reply = answerAstro("What happens after a wrong move?", context);

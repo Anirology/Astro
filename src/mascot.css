@@ -1,0 +1,21 @@
+.astro-guide { max-width: none; min-height: 190px; gap: 24px; padding: 18px 28px; border-width: 3px; border-bottom-width: 7px; }
+.astro-guide .astro { width: 165px; height: 175px; flex: 0 0 165px; }
+.astro-guide-copy { position: relative; flex: 1; background: #fff; border: 3px solid #f0d173; border-radius: 24px; padding: 18px 23px; box-shadow: 0 5px 0 #edd89c; }
+.astro-guide-copy::before { content: ''; position: absolute; left: -12px; top: 35px; width: 20px; height: 20px; background: #fff; border-left: 3px solid #f0d173; border-bottom: 3px solid #f0d173; transform: rotate(45deg); }
+.astro-guide-copy p { font-size: 21px; line-height: 1.4; font-weight: 900; color: #204363; }
+.astro-guide-compact { padding: 16px; gap: 12px; }
+.astro-guide-compact .astro { width: 130px; height: 140px; flex-basis: 130px; }
+.astro-guide-compact .astro-guide-copy p { font-size: 18px; }
+.arcade-guide > .astro { width: 200px; height: 210px; max-width: 100%; }
+.arcade-guide > p { background: #fff; border: 2px solid #ebce76; border-radius: 19px; padding: 15px; font-size: 17px; line-height: 1.4; }
+.welcome-astro .bubble { max-width: 260px; font-size: 21px; padding: 20px 24px; }
+.astro-gallery-grid .astro { width: 155px; height: 165px; }
+.chat-launcher .astro { width: 76px; height: 80px; }
+.chat-header-avatar .astro { width: 85px; height: 90px; }
+.chat-header-avatar { width: 85px; height: 90px; }
+.astro-talking-mouth { transform-box: fill-box; transform-origin: center; animation: astro-speak 1.4s ease-in-out 3; }
+.astro-eyes { transform-box: fill-box; transform-origin: center; animation: astro-blink 6s ease-in-out infinite; }
+@keyframes astro-speak { 0%,100% { transform: scaleY(.65); } 20%,60% { transform: scaleY(1.15); } 40%,80% { transform: scaleY(.35); } }
+@keyframes astro-blink { 0%,43%,47%,100% { transform: scaleY(1); } 45% { transform: scaleY(.08); } }
+.reduce-motion .astro-talking-mouth, .reduce-motion .astro-eyes { animation: none; }
+@media (prefers-reduced-motion: reduce) { .astro-talking-mouth, .astro-eyes { animation: none; } }

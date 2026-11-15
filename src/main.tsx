@@ -24,12 +24,17 @@ import { badges, earnedBadges } from "./badges";
 import Arcade, { arcadeLevels } from "./Arcade";
 import GameIcon from "./GameIcon";
 import AstroChat from "./AstroChat";
+import Campaign, { campaign } from "./Campaign";
+import MissionMap from "./MissionMap";
 import "./style.css";
 import "./extra.css";
 import "./redesign.css";
 import "./arcade.css";
 import "./chat.css";
 import "./xp.css";
+import "./mascot.css";
+import "./campaign.css";
+import "./missionMap.css";
 
 type Page =
   | "welcome"
@@ -39,6 +44,7 @@ type Page =
   | "consequence"
   | "debrief"
   | "arcade"
+  | "campaign"
   | "notebook"
   | "badges"
   | "settings"
@@ -56,6 +62,7 @@ type Save = {
   arcadeProgress?: Record<number, string[]>;
   streak?: number;
   scienceProgress?: Record<number, number[]>;
+  campaignDone?: Record<number, { identified: boolean; applied: boolean; changed: boolean; predicted: number; fixed: boolean }>;
 };
 type Settings = {
   age: "younger" | "older";
@@ -75,6 +82,7 @@ const defaultSave: Save = {
   arcadeProgress: {},
   streak: 0,
   scienceProgress: {},
+  campaignDone: {},
 };
 const defaultSettings: Settings = {
   age: "older",
@@ -210,14 +218,15 @@ function SourceCard({
   );
 }
 function App() {
-  const [save, setSave] = useState<Save>(() => ({ ...defaultSave }));
-  const [settings, setSettings] = useState<Settings>(() => ({ ...defaultSettings }));
-  const [page, setPage] = useState<Page>("welcome");
-  const [displayXp, setDisplayXp] = useState(0);
+  const [save, setSave] = useState<Save>(() => { try { return { ...defaultSave, ...JSON.parse(localStorage.getItem("astro-save-v2") || "{}") }; } catch { return { ...defaultSave }; } });
+  const [settings, setSettings] = useState<Settings>(() => { try { return { ...defaultSettings, ...JSON.parse(localStorage.getItem("astro-settings-v2") || "{}") }; } catch { return { ...defaultSettings }; } });
+  const [page, setPage] = useState<Page>(() => localStorage.getItem("astro-save-v2") ? "map" : "welcome");
+  const [campaignId, setCampaignId] = useState(1);
+  const [displayXp, setDisplayXp] = useState(save.xp);
   const [xpFlight, setXpFlight] = useState<{
     id: number; delta: number; x: number; y: number; dx: number; dy: number;
   } | null>(null);
-  const lastXp = useRef(0);
+  const lastXp = useRef(save.xp);
   const [levelId, setLevelId] = useState(1);
   const [game, setGame] = useState<Game>(() => newGame(1));
   const [selected, setSelected] = useState<string | null>(null);
@@ -257,8 +266,8 @@ function App() {
     map: {
       mood: "point",
       message:
-        "Pick any of the five rescue games. Each one teaches a new way to save the crew.",
-      hint: "All five rescue levels are open. The science missions below tell longer stories.",
+        "Follow the glowing Moon route. Choose a landmark, then start its science mission.",
+      hint: "Complete seven stops to unlock the golden final base. The rescue arcade stays open below.",
     },
     notebook: {
       mood: "think",
@@ -316,6 +325,8 @@ function App() {
       localStorage.removeItem("astro-settings-v1");
     } catch { /* Storage may be unavailable. */ }
   }, []);
+  useEffect(() => { try { localStorage.setItem("astro-save-v2", JSON.stringify(save)); } catch { /* Private browsing may block storage. */ } }, [save]);
+  useEffect(() => { try { localStorage.setItem("astro-settings-v2", JSON.stringify(settings)); } catch { /* Settings still work in memory. */ } }, [settings]);
   useEffect(() => {
     if (save.xp < lastXp.current) {
       lastXp.current = save.xp;
@@ -613,7 +624,6 @@ function App() {
             >
               {settings.sound ? "♪ Sound on" : "♪ Sound off"}
             </button>
-            <span className="streak-chip">{save.streak || 0} day streak</span>
           </div>
         </header>
         <div className="xp-hud" aria-label="Mission experience">
@@ -623,10 +633,14 @@ function App() {
             <div className="xp-hud-fill" style={{ width: `${displayXp % 100}%` }} />
           </div>
           <strong className="xp-hud-total" aria-live="polite">{displayXp} XP</strong>
+          <div className={`moonfire ${save.streak ? "moonfire-lit" : ""}`} aria-label={`Moonfire practice streak: ${save.streak || 0} ${save.streak === 1 ? "day" : "days"}`}>
+            <svg className="moonfire-flame" viewBox="0 0 48 54" fill="none" aria-hidden="true"><path className="moonfire-outer" d="M25 3c3 10-3 13-1 20 5-3 7-8 7-12 10 9 14 18 12 27-2 9-10 15-19 15S6 47 5 38c-2-10 4-20 14-29-1 8 1 11 6-6Z"/><path className="moonfire-inner" d="M24 25c1 6-5 8-5 15 0 5 3 9 7 9 5 0 8-4 8-9 0-5-3-9-5-12-1 5-3 6-5 7 0-4 1-7 0-10Z"/></svg>
+            <span className="moonfire-copy"><strong>MOONFIRE</strong><span><b>{save.streak || 0}</b> {save.streak === 1 ? "day" : "days"}</span></span>
+          </div>
           {xpFlight && <span className="xp-hud-plus">+{xpFlight.delta}</span>}
         </div>
         <main>
-          {guideByPage[page] && (
+          {guideByPage[page] && page !== "map" && (
             <AstroGuide
               key={page}
               {...guideByPage[page]!}
@@ -646,6 +660,7 @@ function App() {
                   Help Astro protect the crew. Make a plan, see what changes,
                   and discover real space science.
                 </p>
+                <div className="reading-choice" aria-label="Choose reading mode"><strong>Choose your mission style</strong><div><button className={settings.age === "younger" ? "selected" : ""} onClick={() => setSettings({ ...settings, age: "younger" })}>Explorer · ages 7–9<small>Two choices and extra hints</small></button><button className={settings.age === "older" ? "selected" : ""} onClick={() => setSettings({ ...settings, age: "older" })}>Engineer · ages 10–12<small>Three choices and more tradeoffs</small></button></div></div>
                 <button className="primary" onClick={() => go("map")}>
                   Start mission <span>→</span>
                 </button>
@@ -665,27 +680,28 @@ function App() {
                   </span>
                   <h1>Mission map</h1>
                   <p>
-                    Five rescue games are ready to play. Solve pictures,
-                    puzzles, routes, and matches to save the crew.
+                    Follow seven science missions, then rescue the Moon base. The rescue arcade below is open for replay.
                   </p>
                 </div>
                 <div className="progress-ring">
                   <strong>
-                    {Object.keys(save.arcadeStars || {}).length}
-                    <small>/5</small>
+                    {Object.keys(save.campaignDone || {}).length}
+                    <small>/8</small>
                   </strong>
-                  <span>rescue games done</span>
+                  <span>Moon missions learned</span>
                 </div>
                 <div className="map-score">
                   <strong>
                     ✧ {Object.keys(save.insights || {}).length} insights
                   </strong>
                   <span>
-                    {save.streak || 0} day streak · {save.days} practice{" "}
+                    Moonfire: {save.streak || 0} {save.streak === 1 ? "day" : "days"} · {save.days} practice{" "}
                     {save.days === 1 ? "day" : "days"}
                   </span>
                 </div>
               </div>
+              <MissionMap done={save.campaignDone || {}} onStart={(id) => { setCampaignId(id); go("campaign"); }} />
+              <div className="science-heading"><span className="eyebrow turquoise">FREE PLAY</span><h2>Rescue arcade</h2><p>Replay short games and practice the systems.</p></div>
               <div className="arcade-map-grid">
                 {arcadeLevels.map((item) => (
                   <button
@@ -756,6 +772,7 @@ function App() {
               </div>
             </>
           )}
+          {page === "campaign" && <Campaign key={campaignId} id={campaignId} sound={settings.sound} mode={settings.age} onMap={() => go("map")} onComplete={(id, predicted, fixed) => setSave(s => s.campaignDone?.[id] ? s : ({ ...s, xp: s.xp + 35 + Math.min(10, predicted * 2), campaignDone: { ...s.campaignDone, [id]: { identified: true, applied: true, changed: true, predicted, fixed } }, ...practiceFields(s) }))} />}
           {page === "arcade" && (
             <Arcade
               key={`${arcadeId}-${arcadeRun}`}
@@ -1132,6 +1149,7 @@ function App() {
                 </div>
                 <Astro small />
               </div>
+              <section className="campaign-journal"><h2>Ideas I learned</h2><div>{campaign.map((item,i) => <button key={item.title} onClick={() => { setCampaignId(i+1); go("campaign"); }}><strong>{save.campaignDone?.[i+1] ? "★" : "○"} {item.title}</strong><span>{save.campaignDone?.[i+1] ? item.takeaway : "Try this mission to learn the idea."}</span>{save.campaignDone?.[i+1]?.fixed && <small>Thoughtful Fix</small>}</button>)}</div></section>
               <div className="notebook-grid">
                 <section className="paper">
                   <h2>Words from the Moon</h2>
@@ -1317,8 +1335,8 @@ function App() {
                     }}
                   />
                 </label>
-                <button className="danger" onClick={() => window.location.reload()}>
-                  Restart this session
+                <button className="danger" onClick={() => { localStorage.removeItem("astro-save-v2"); localStorage.removeItem("astro-settings-v2"); window.location.reload(); }}>
+                  Start a new mission
                 </button>
               </div>
             </>

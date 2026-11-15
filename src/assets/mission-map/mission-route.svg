@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 941" fill="none" aria-hidden="true">
+  <!-- Place behind mission landmarks. Animate the dashed stroke or a marker along this path. -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <linearGradient id="route" x1="145" y1="620" x2="1460" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CF7F0"/>
+      <stop offset="0.7" stop-color="#67DFFC"/>
+      <stop offset="1" stop-color="#FFE18B"/>
+    </linearGradient>
+  </defs>
+  <path id="mission-route" d="M160 620 C110 510 155 425 285 405 C370 390 440 470 470 610 C510 520 560 412 690 400 C800 390 820 470 835 590 C875 470 910 410 1040 410 C1160 410 1220 475 1260 585 C1400 520 1475 420 1450 315" stroke="#34E5F2" stroke-width="34" stroke-linecap="round" filter="url(#glow)" opacity="0.55"/>
+  <path d="M160 620 C110 510 155 425 285 405 C370 390 440 470 470 610 C510 520 560 412 690 400 C800 390 820 470 835 590 C875 470 910 410 1040 410 C1160 410 1220 475 1260 585 C1400 520 1475 420 1450 315" stroke="url(#route)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M160 620 C110 510 155 425 285 405 C370 390 440 470 470 610 C510 520 560 412 690 400 C800 390 820 470 835 590 C875 470 910 410 1040 410 C1160 410 1220 475 1260 585 C1400 520 1475 420 1450 315" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 22" opacity="0.85"/>
+</svg>

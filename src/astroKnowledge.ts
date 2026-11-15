@@ -96,7 +96,7 @@ export function answerAstro(
     };
   if (/(points|xp|streak|score|stars)/.test(q))
     return {
-      text: `You have ${context.xp} XP and a ${context.streak}-day practice streak in this session. Each new correct step sends a star to the XP bar; 100 XP fills one level. You have finished ${context.arcadeDone} of 5 rescue games and ${context.scienceDone} science stories. Refreshing starts a new game from zero.`,
+      text: `You have ${context.xp} XP and a ${context.streak}-day practice streak. Each new correct step sends a star to the XP bar; 100 XP fills one level. You have finished ${context.arcadeDone} of 5 rescue games and ${context.scienceDone} science stories. Your learning progress stays on this device when you refresh.`,
       suggestions: ["What should I play next?", "How do I earn badges?"],
     };
   const namedBadge = badges.find((badge) =>

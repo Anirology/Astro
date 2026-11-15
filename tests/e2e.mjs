@@ -98,16 +98,16 @@ try {
     .first()
     .click();
   await page.reload();
-  await page.locator(".welcome").waitFor();
-  if ((await page.locator(".xp-hud-total").innerText()) !== "0 XP")
-    throw new Error("Mission XP did not reset on reload");
-  if (await page.evaluate(() => localStorage.getItem("astro-save-v1") !== null))
-    throw new Error("Mission progress was saved locally");
+  await page.locator(".arcade-map-grid").waitFor();
+  if ((await page.locator(".xp-hud-total").innerText()) === "0 XP")
+    throw new Error("Mission XP was lost on reload");
+  if (await page.evaluate(() => localStorage.getItem("astro-save-v2") === null))
+    throw new Error("Mission progress was not saved locally");
   await page.getByRole("button", { name: "Badges", exact: true }).click();
   if ((await page.locator(".badge-card").count()) !== 10)
     throw new Error("Badge gallery does not contain 10 badges");
-  if ((await page.locator(".badge-card.earned").count()) !== 0)
-    throw new Error("Badges did not reset on reload");
+  if ((await page.locator(".badge-card.earned").count()) < 8)
+    throw new Error("Badges were lost on reload");
   await page.waitForTimeout(1000);
   await page.screenshot({
     path: "tests/badges-1280.png",

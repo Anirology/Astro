@@ -56,7 +56,7 @@ async function finishQuiz(level) {
 try {
   await page.goto("http://127.0.0.1:5179/", { waitUntil: "networkidle" });
   await page.getByRole("button", { name: /start mission/i }).click();
-  if ((await page.locator(".arcade-map-card").count()) !== 5)
+  if ((await page.locator(".arcade-map-card:not(.campaign-map-card)").count()) !== 5)
     throw new Error("Five arcade levels were not unlocked");
   await page.screenshot({
     path: "tests/arcade-map.png",
@@ -69,7 +69,7 @@ try {
     [5, ["Shelter", "Crew", "Habitat"]],
   ]) {
     await page
-      .locator(".arcade-map-card")
+      .locator(".arcade-map-card:not(.campaign-map-card)")
       .nth(level - 1)
       .click();
     if (level === 1)
@@ -116,7 +116,7 @@ try {
       .last()
       .click();
   }
-  await page.locator(".arcade-map-card").nth(1).click();
+  await page.locator(".arcade-map-card:not(.campaign-map-card)").nth(1).click();
   const solution = [
     "air",
     "power",
@@ -149,7 +149,7 @@ try {
     .getByRole("button", { name: /mission map/i })
     .last()
     .click();
-  await page.locator(".arcade-map-card").nth(2).click();
+  await page.locator(".arcade-map-card:not(.campaign-map-card)").nth(2).click();
   await page.keyboard.press("ArrowDown");
   for (const key of [
     "down",
@@ -166,7 +166,7 @@ try {
     .getByRole("button", { name: /mission map/i })
     .last()
     .click();
-  await page.locator(".arcade-map-card").nth(3).click();
+  await page.locator(".arcade-map-card:not(.campaign-map-card)").nth(3).click();
   for (let turn = 0; turn < 25; turn++) {
     if (await page.locator(".arcade-quiz").count()) break;
     const board = await page
@@ -220,7 +220,7 @@ try {
     .click();
   if (
     (await page
-      .locator(".arcade-map-card .arcade-map-action")
+      .locator(".arcade-map-card:not(.campaign-map-card) .arcade-map-action")
       .filter({ hasText: "Replay" })
       .count()) !== 5
   )
@@ -228,11 +228,11 @@ try {
   if (Number((await page.locator(".xp-hud-total").innerText()).replace(/\D/g, "")) < 200)
     throw new Error("XP did not increase across the arcade");
   await page.reload();
-  await page.locator(".welcome").waitFor();
-  if ((await page.locator(".xp-hud-total").innerText()) !== "0 XP")
-    throw new Error("XP did not reset after refresh");
-  if (await page.evaluate(() => localStorage.getItem("astro-save-v1") !== null))
-    throw new Error("Progress was saved in local storage");
+  await page.locator(".arcade-map-grid").waitFor();
+  if ((await page.locator(".xp-hud-total").innerText()) === "0 XP")
+    throw new Error("XP was lost after refresh");
+  if (await page.evaluate(() => localStorage.getItem("astro-save-v2") === null))
+    throw new Error("Progress was not saved locally");
   if (errors.length) throw new Error(errors.join("\n"));
   console.log(
     "Arcade passed: five unlocked levels, all mechanics, rewards, and fresh restart.",

@@ -1,6 +1,6 @@
 export type Cue =
   "tap" | "pick" | "drop" | "reveal" | "success" | "retry" | "insight"
-  | "match" | "sparkle" | "level" | "step" | "chat" | "xp";
+  | "match" | "sparkle" | "level" | "step" | "chat" | "xp" | "repair";
 let audio: AudioContext | null = null;
 
 const notes: Record<
@@ -63,6 +63,7 @@ const notes: Record<
   match: { tones: [[587, 0, .08], [784, .06, .08], [988, .14, .12], [1175, .23, .23]], wave: "triangle", volume: .038 },
   sparkle: { tones: [[1047, 0, .08], [1319, .06, .1], [1568, .14, .18]], wave: "sine", volume: .028 },
   xp: { tones: [[784, 0, .23], [1175, .09, .27], [1568, .2, .36]], wave: "sine", volume: .042 },
+  repair: { tones: [[523, 0, .12], [659, .09, .13], [880, .19, .24]], wave: "triangle", volume: .035 },
   level: { tones: [[392, 0, .13], [523, .12, .13], [659, .24, .13], [784, .36, .15], [1047, .5, .34]], wave: "triangle", volume: .044 },
   step: { tones: [[294, 0, .06], [392, .055, .08]], wave: "square", volume: .014 },
   chat: { tones: [[698, 0, .08], [880, .075, .13]], wave: "sine", volume: .025 },

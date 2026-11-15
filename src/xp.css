@@ -30,6 +30,18 @@
 .xp-hud-track { position: relative; flex: 1; height: 22px; overflow: hidden; border: 2px solid #9dd7d6; border-radius: 999px; background: #e3f7f4; box-shadow: inset 0 3px 3px #348d871b; }
 .xp-hud-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #31c9b8, #81df94 58%, #f6d45c); box-shadow: inset 0 -4px #168d84; transition: width .6s cubic-bezier(.18,.9,.25,1); }
 .xp-hud-total { min-width: 88px; color: #1b5870; font-size: 24px; font-weight: 900; text-align: right; }
+.moonfire { display: flex; align-items: center; gap: 7px; flex: none; min-width: 120px; padding: 5px 10px 5px 5px; border: 2px solid #f2c880; border-bottom-width: 4px; border-radius: 16px; background: #fff5d9; color: #754416; }
+.moonfire-flame { width: 34px; height: 39px; flex: none; filter: drop-shadow(0 2px 1px #b25c3266); transform-origin: 50% 90%; }
+.moonfire-outer { fill: #ff8b38; stroke: #bd4e36; stroke-width: 2.5; stroke-linejoin: round; }
+.moonfire-inner { fill: #ffe274; }
+.moonfire-lit .moonfire-flame { animation: moonfire-dance 1.8s ease-in-out infinite; }
+.moonfire-lit .moonfire-inner { animation: moonfire-glow 1.8s ease-in-out infinite; }
+.moonfire-copy { display: grid; line-height: 1.05; }
+.moonfire-copy strong { font-size: 11px; letter-spacing: .045em; }
+.moonfire-copy span { font-size: 12px; font-weight: 800; white-space: nowrap; }
+.moonfire-copy b { font-size: 19px; }
+@keyframes moonfire-dance { 0%,100% { transform: rotate(-5deg) scale(.96); } 35% { transform: rotate(5deg) scale(1.08); } 65% { transform: rotate(-2deg) scale(1.01); } }
+@keyframes moonfire-glow { 0%,100% { fill: #ffe274; } 50% { fill: #fff5ad; } }
 .xp-hud-plus { position: absolute; right: 18px; top: -25px; padding: 4px 11px; border-radius: 12px; background: #ffd864; color: #20435c; font-weight: 900; animation: xp-plus .75s ease-out both; }
 .xp-flight { position: fixed; z-index: 1100; width: 58px; height: 58px; margin: -29px; pointer-events: none; animation: xp-fly .95s cubic-bezier(.32,.1,.7,.95) both; }
 .xp-flight .game-icon { width: 58px; height: 58px; filter: drop-shadow(0 4px 6px #1d527244); }
@@ -48,7 +60,8 @@
 .header-nav button:nth-child(4) .game-icon { background: #ffe8e5; }
 .header-nav button:nth-child(5) .game-icon { background: #ecedff; }
 .node-art .game-icon, .quiz-scene .game-icon { filter: drop-shadow(0 3px 0 #6ba9ae40); }
-.reduce-motion .xp-flight, .reduce-motion .xp-flight i, .reduce-motion .xp-hud-plus { animation: none; }
+.reduce-motion .xp-flight, .reduce-motion .xp-flight i, .reduce-motion .xp-hud-plus, .reduce-motion .moonfire-flame, .reduce-motion .moonfire-inner { animation: none; }
 .reduce-motion .xp-hud-fill { transition: none; }
-@media (prefers-reduced-motion: reduce) { .xp-flight, .xp-flight i, .xp-hud-plus { animation: none; } .xp-hud-fill { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .xp-flight, .xp-flight i, .xp-hud-plus, .moonfire-flame, .moonfire-inner { animation: none; } .xp-hud-fill { transition: none; } }
 @media (max-width: 1100px) { .xp-hud { width: calc(100% - 28px); gap: 10px; } .xp-hud-copy { min-width: 150px; } .xp-hud-copy span { display: none; } }
+@media (max-width: 560px) { .xp-hud { gap: 7px; padding: 8px; width: calc(100% - 16px); } .moonfire { min-width: 0; padding: 3px 5px; gap: 3px; } .moonfire-flame { width: 23px; height: 28px; } .moonfire-copy strong { font-size: 8px; } .moonfire-copy span { font-size: 10px; } .moonfire-copy b { font-size: 14px; } }

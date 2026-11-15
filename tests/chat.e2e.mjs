@@ -74,7 +74,7 @@ try {
   )
     throw new Error("Live report citation missing");
   await page.getByRole("button", { name: "Close Astro chat" }).click();
-  await page.locator(".arcade-map-card").first().click();
+  await page.locator(".arcade-map-card:not(.campaign-map-card)").first().click();
   await page.getByRole("button", { name: "Ask Astro a question" }).click();
   await page
     .getByRole("button", { name: "How do I rescue the astronaut?" })
